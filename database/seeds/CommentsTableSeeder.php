@@ -5,6 +5,7 @@ use Faker\Factory;
 use App\User;
 use App\Post;
 
+
 class CommentsTableSeeder extends Seeder
 {
     /**
@@ -16,7 +17,8 @@ class CommentsTableSeeder extends Seeder
     {
         $faker = Factory::create();
     
-        foreach( range(1, 10) as $index ) {
+        foreach( range(1, 10) as $index )
+         {
             DB::table( 'comments' )->insert( array(
                 'content' => $faker->paragraph,
                 'user_id' => $faker->randomElement(User::pluck( 'id' )->toArray()),
