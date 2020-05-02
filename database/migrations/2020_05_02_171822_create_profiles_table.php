@@ -15,7 +15,17 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string( 'username' );
+            $table->longText( 'bio' );
+            $table->string( 'profile_pic' );
+            $table->unsignedBigInteger( 'user_id' )->nullable();
+            $table->rememberToken();
+            $table->timestamp('posted_at');
+
+            $table->foreign( 'user_id' )
+                ->references( 'id' )
+                ->on( 'users' )
+                ->onDelete( 'cascade' );
         });
     }
 
