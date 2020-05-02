@@ -15,7 +15,8 @@ class PostsTableSeeder extends Seeder
     {
         $faker = Factory::create();
     
-        foreach( range(1, 40) as $index ) {
+        foreach( range(1, 40) as $index )
+         {
             DB::table( 'posts' )->insert( array(
                 'content' => $faker->paragraph,
                 'picture' => $faker->imageUrl($width = 640, $height = 480),
