@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +37,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profiles()
+    {
+        return $this->hasOne( 'App\Profile' );
+    }
+
+    public function comments()
+    {
+        return $this->hasMany( 'App\Comment' );
+    }
+
+    public function posts()
+    {
+        return $this->hasMany( 'App\Post' );
+    }
+
+    public function followers()
+    {
+        return $this->hasMany( 'App\Follower' )->withTimestamps();
+    }
+
+    public function followings()
+    {
+        return $this->hasMany( 'App\Follower' )->withTimestamps();
+    }
+
+    public function likedPosts()
+    {
+        return $this->morphedByMany('App\Post', 'likeable')->whereDeletedAt(null);
+    }
+
 }
