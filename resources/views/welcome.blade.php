@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1. maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" type="image/png" href="{{URL('/images/mountain.png')}}">
         <title>FreeOutdoors</title>
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
@@ -59,7 +59,7 @@
                         Register
                         </a>
                     </li>
-                    @endauth
+                    @endguest
                 </ul>
             </nav>
         </div>

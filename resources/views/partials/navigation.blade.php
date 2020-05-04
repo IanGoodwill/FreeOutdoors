@@ -3,9 +3,11 @@
     <ul class="navbar-nav">
 
         <li class="nav-item" class="mx-auto">
+            <a  href="./">
             <figure  >
                 <img class="img-responsive" hspace="20" alt="logo" src="{{URL('/images/mountain-logo2.webp')}}">
             </figure>
+            </a>
         </li>
 
         <li class="nav-item">

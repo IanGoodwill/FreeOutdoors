@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
   }
-  
+
 body  {
     background-color: rgba(206, 234, 178, 1);
     width: 100vw;
@@ -13,14 +13,15 @@ body  {
 ul  {
     list-style: none;
     display: flex;
+    align-items: center;
     background-color: white;
    
 }
 
 ul li  {
     font-size: 1.2rem;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
     margin-top: 1%;
 }
 
@@ -32,7 +33,7 @@ ul li  {
 
 .navigation {
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: auto;
   }
 
@@ -142,4 +143,19 @@ ul li  {
     width: 100%;
     margin: 0;
     max-height: 50%;
+  }
+
+  @media screen and (max-width: 600px) {
+    body  {
+      width: 100%;
+      font-size: 0.5em;
+    }
+
+    .navigation a {
+      font-size: 1rem;
+      color: black;
+      font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+      text-decoration: none;
+     
+    }
   }
