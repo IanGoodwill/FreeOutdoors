@@ -33,7 +33,7 @@ class PostController extends Controller
             $posts = Post::query( )
             ->join( 'users', 'posts.user_id', '=', 'users.id' )
             ->select( 'posts.id',
-            'user.id as user_ID',
+            'users.id as user_id',
             'posts.posted_at',
             'posts.posted_at',
             'posts.content',

@@ -1,0 +1,78 @@
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+body  {
+    background-color: rgba(206, 234, 178, 1);
+}
+
+ul  {
+    list-style: none;
+    display: flex;
+    background-color: white;
+}
+
+ul li  {
+    font-size: 1.5rem;
+    margin: 50px;
+   
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+
+  .nav a {
+    font-size: medium;
+    color: white;
+  }
+  
+  h1  {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .mountain-lake-image  {
+      width: 100vw;
+      height: auto;
+  }
+
+.who-we-are  {
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.heading-large  {
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px;
+    display: block;
+  }
+
+.heading-small  {
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px;
+    display: block;
+  }
+
+  .text  {
+    justify-self: center;
+    margin: 30px;
+    max-width: 50%;
+    font-size: 1.5rem;
+    display: block;
+  }
+
+  .explore-link  {
+    margin: 30px;
+    font-size: 2rem;
+    text-align: center;
+  }

@@ -19,4 +19,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/posts/{id}/act', 'LikeController@actOnPost');
+
+Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@likePost']);
+
+Route::get('/posts/{id}/act', ['as' => 'comment.like', 'uses' => 'LikeController@likeComment']);
+
+Route::get('profile/{id}', 'ProfileController@showPost');
+
+Route::get('post/{id}', 'PostController@showProfile');
+
+Route::resource( 'posts', 'PostController' );
+
+Route::resource( 'profiles', 'ProfileController' );
+
+Route::resource( 'comments', 'CommentController' );
