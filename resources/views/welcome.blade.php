@@ -6,6 +6,7 @@
         <link rel="shortcut icon" type="image/png" href="{{URL('/images/mountain.png')}}">
         <title>FreeOutdoors</title>
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
+        <script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
     </head>
     <body>
 
