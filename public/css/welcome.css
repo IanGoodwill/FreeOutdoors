@@ -145,6 +145,12 @@ ul li  {
     max-height: 50%;
   }
 
+  .panel  {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 200px
+  }
+
   @media screen and (max-width: 600px) {
     body  {
       width: 100%;

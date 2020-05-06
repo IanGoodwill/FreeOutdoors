@@ -5,8 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1. maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" type="image/png" href="{{URL('/images/mountain.png')}}">
         <title>FreeOutdoors</title>
+         <!-- Styles -->
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
-        <script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" type ="text/javascript" defer ></script>
+        <script src="{{ asset('js/welcome.js') }}" type ="text/javascript" defer ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     </head>
     <body>
 
@@ -70,8 +77,8 @@
                 <figcaption><small>Image by <a href="https://pixabay.com/users/Pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pexels</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pixabay</a></small></figcaption>
             </figure>
 
-            <section class="who-we-are">
-                <h5 class="heading-small"> WHO WE ARE </h5>
+            <section class="who-we-are panel">
+                <h6 class="heading-small"> WHO WE ARE </h6>
                 <br>
                 <h4 class="heading-large"> Our Passion For The Outdoors </h4>
                 <p class="text"> We do what we do because we are lovers of the outdoors and we wanted to be able to share that passion. Finding your next adventure could be a click away! In times where everything is connected it is getting increasingly difficult to disconnect and appreciate the world around us. The aim of this social platform is to give people a place to share the experiences that they have had, whether that is climbing a mountain or sitting in your back yard. 
@@ -82,8 +89,8 @@
                 </a>
             </section>
 
-            <section class="what-we-do">
-                <h5 class="heading-small"> WHAT WE DO </h5>
+            <section class="what-we-do panel">
+                <h6 class="heading-small"> WHAT WE DO </h6>
                 <br>
                 <h4 class="heading-large"> Sharing Our Adventures </h4>
                 <p class="text"> Deep into the wilds or in our backyard, we share the things that make us happy. we encourage everyone to share their passion for the outdoors regardless of their location or background.
@@ -116,8 +123,8 @@
                 </div>
             </section>
 
-            <section class="why-join">
-                <h5 class="heading-small"> WHY JOIN? </h5>
+            <section class="why-join panel">
+                <h6 class="heading-small"> WHY JOIN? </h6>
                 <br>
                 <h4 class="heading-large">To Get Inspired </h4>
                 <p class="text">Search no further for tips and tricks to enjoying the outdoors. Our platform is not bogged down with adds or filler content. Join the community to learn and share about local hiking trails, Events in your area, or simply to explore other peoples adventures to get away for a moment or to plan your next excursion.
