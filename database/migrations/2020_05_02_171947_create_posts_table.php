@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger( 'user_id' )->nullable();
             $table->timestamp('posted_at');
             $table->integer('likes_count')->default(0);
+            $table->integer('comments_count')->default(0);
             $table->softDeletes();
 
             $table->foreign( 'user_id' )

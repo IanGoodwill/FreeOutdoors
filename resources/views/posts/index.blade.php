@@ -47,7 +47,9 @@ FreeOutdoors
                 <a href="{{ route('posts.show', $post->id ) }}" >
                     <button>Comment</button>
                 </a>
-                
+                <p>
+                    <span id="comments-count-{{ $post->id }}">{{ $post->comments_count }}</span>
+                </p>
                
                 
                 <div class="float-right">

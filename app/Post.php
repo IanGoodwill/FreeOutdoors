@@ -20,6 +20,7 @@ class Post extends Model
         'content',
         'picture',
         'likes_count',
+        'comments_count',
         'posted_at'
     );
 
