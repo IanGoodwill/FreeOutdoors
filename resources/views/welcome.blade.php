@@ -4,8 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1. maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" type="image/png" href="{{URL('/images/mountain.png')}}">
-        <title>FreeOutdoors</title>
+        <title>FreeOutdoors. Social media for outdoor enthusiasts.</title>
+        <meta name="description" content="A welcome page for the FreeOutdoors app. Learn who we are, what we do, and why you should join.">
+        <meta name=”robots” content="index, follow">
+         <!-- Styles -->
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" type ="text/javascript" defer ></script>
+        <script src="{{ asset('js/welcome.js') }}" type ="text/javascript" defer ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     </head>
     <body>
 
@@ -69,68 +79,80 @@
                 <figcaption><small>Image by <a href="https://pixabay.com/users/Pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pexels</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pixabay</a></small></figcaption>
             </figure>
 
-            <section class="who-we-are">
-                <h5 class="heading-small"> WHO WE ARE </h5>
+            <div id="reveal-elements">
+            <section class="who-we-are panel">
+                <div id="trigger2" class="spacer digit s0"></div>
+              <div  id="reveal2">  
+                <h6 class="heading-small digit"> WHO WE ARE </h6>
+              </div>
                 <br>
-                <h4 class="heading-large"> Our Passion For The Outdoors </h4>
-                <p class="text"> We do what we do because we are lovers of the outdoors and we wanted to be able to share that passion. Finding your next adventure could be a click away! In times where everything is connected it is getting increasingly difficult to disconnect and appreciate the world around us. The aim of this social platform is to give people a place to share the experiences that they have had, whether that is climbing a mountain or sitting in your back yard. 
+                <h4 class="heading-large digit"> Our Passion For The Outdoors </h4>
+                <p class="text digit"> We do what we do because we are lovers of the outdoors and we wanted to be able to share that passion. Finding your next adventure could be a click away! In times where everything is connected it is getting increasingly difficult to disconnect and appreciate the world around us. The aim of this social platform is to give people a place to share the experiences that they have had, whether that is climbing a mountain or sitting in your back yard. 
                 </p>
                 <br>
-                <a class="explore-link" href="{{ route( 'posts.index') }}">
+                <a class="explore-link digit" href="{{ route( 'posts.index') }}">
                     Start Exploring
                 </a>
             </section>
+            </div>
 
-            <section class="what-we-do">
-                <h5 class="heading-small"> WHAT WE DO </h5>
+            <section class="what-we-do panel">
+                <div id="reveal-elements">
+                <h6 class="heading-small digit"> WHAT WE DO </h6>
                 <br>
-                <h4 class="heading-large"> Sharing Our Adventures </h4>
-                <p class="text"> Deep into the wilds or in our backyard, we share the things that make us happy. we encourage everyone to share their passion for the outdoors regardless of their location or background.
+                <h4 class="heading-large digit"> Sharing Our Adventures </h4>
+                <p class="text digit"> Deep into the wilds or in our backyard, we share the things that make us happy. we encourage everyone to share their passion for the outdoors regardless of their location or background.
                 </p>
                 <div class="gallery-container">
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/snow.jpg')}}" aria-label="Picture of a hiker in the snow">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/Noel_Bauza-2019050/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1185474">Noel Bauza</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1185474">Pixabay</a></small></figcaption>
                     </figure>
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/man-desert.jpg')}}" aria-label="Picture of peron jumping from one rock to another in a desert">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/stokpic-692575/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731900">stokpic</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731900">Pixabay</a></small></figcaption>
                     </figure>
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/feet-lake.jpg')}}" aria-label="Picture of a persons feet looking over a mountain lake">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/asmuSe-3280612/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1749508">畅 苏</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1749508">Pixabay</a></small></figcaption>
                     </figure>
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/cliff-cabin.jpg')}}" aria-label="Picture of people doing a yoga pose on top of a cliff">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/sasint-3639875/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1822484">Sasin Tipchai</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1822484">Pixabay</a></small></figcaption>
                     </figure>
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/dolomites.jpg')}}" aria-label="Picture of mountains and a meadow">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/kordi_vahle-4934524/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2580866">kordula vahle</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2580866">Pixabay</a></small></figcaption>
                     </figure>
-                    <figure class="gallery-image">
+                    <figure class="gallery-image digit">
                         <img class="gallery-image" src="{{URL('/images/yard.jpg')}}" aria-label="Picture of a little kid playing in the yard.">
                         <figcaption class="gallery-caption"><small>Image by <a href="https://pixabay.com/users/Pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1867464">Pexels</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1867464">Pixabay</a></small></figcaption>
                     </figure>
                 </div>
+                </div>
             </section>
 
-            <section class="why-join">
-                <h5 class="heading-small"> WHY JOIN? </h5>
+            <div id="reveal-elements">
+            <section class="why-join panel">
+                <h6 class="heading-small digit"> WHY JOIN? </h6>
                 <br>
-                <h4 class="heading-large">To Get Inspired </h4>
+                <h4 class="heading-large digit">To Get Inspired </h4>
                 <p class="text">Search no further for tips and tricks to enjoying the outdoors. Our platform is not bogged down with adds or filler content. Join the community to learn and share about local hiking trails, Events in your area, or simply to explore other peoples adventures to get away for a moment or to plan your next excursion.
                 </p>
-                <figure>
+                <figure class="digit">
                     <img class="girl-yard-image" src="{{URL('/images/girl-yard.jpg')}}" aria-label="Picture of young girl looking at a yard. Image by Pexels from Pixabay.">
                     <figcaption><small>Image by <a href="https://pixabay.com/users/Skitterphoto-324082/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=535251">Rudy and Peter Skitterians</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=535251">Pixabay</a></small></figcaption>
                 </figure>
 
-                <a  href="{{ route( 'register') }}"><h4 class="heading-large"> Click Here To Create An Account </h4> </a>
-                <h4 class="heading-large"> OR </h4>
-                <h4 class="heading-large"> Get Outside And Play! </h4>
+                <a  href="{{ route( 'register') }}"><h4 class="heading-large digit"> Click Here To Create An Account </h4> </a>
+                <h4 class="heading-large digit"> OR </h4>
+                <h4 class="heading-large digit"> Get Outside And Play! </h4>
+                <figure>
+                    <img class="page-bottom" src="{{URL('/images/footer-deer.png')}}" aria-label="Silhouette of a deer among trees.">
+                </figure>
             </section>
-
+            </div>
+            
             <figure>
                 <img class="page-bottom" src="{{URL('/images/footer-deer.png')}}" aria-label="Silhouette of a deer among trees.">
             </figure>
