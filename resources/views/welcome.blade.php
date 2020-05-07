@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1. maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" type="image/png" href="{{URL('/images/mountain.png')}}">
-        <title>FreeOutdoors</title>
+        <title>FreeOutdoors. Social media for outdoor enthusiasts.</title>
+        <meta name="description" content="A welcome page for the FreeOutdoors app. Learn who we are, what we do, and why you should join.">
+        <meta name=”robots” content="index, follow">
          <!-- Styles -->
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
         <!-- Scripts -->
