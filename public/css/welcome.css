@@ -68,6 +68,7 @@ ul li  {
     margin: 30px;
     display: block;
     font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    color: rgb(44, 56, 10);
   }
 
 .heading-small  {
@@ -76,14 +77,18 @@ ul li  {
     margin: 30px;
     display: block;
     font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    color: rgb(44, 56, 10);
   }
 
   .text  {
     justify-self: center;
-    margin: 50px;
+    margin: auto;
     max-width: 50%;
     font-size: 1.5rem;
     display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgb(44, 56, 10);
   }
 
   .explore-link  {
@@ -144,6 +149,57 @@ ul li  {
     margin: 0;
     max-height: 50%;
   }
+
+  .panel  {
+    max-height: 100%;
+    width: 100%;
+  
+  }
+  
+  #reveal2 {
+		opacity: 0;
+		-webkit-transform: rotate(40deg) scale(0.5);
+			 -moz-transform: rotate(40deg) scale(0.5);
+				-ms-transform: rotate(40deg) scale(0.5);
+				 -o-transform: rotate(40deg) scale(0.5);
+						transform: rotate(40deg) scale(0.5);
+		-webkit-transition: all 0.8s ease-in-out;
+			 -moz-transition: all 0.8s ease-in-out;
+				-ms-transition: all 0.8s ease-in-out;
+				 -o-transition: all 0.8s ease-in-out;
+						transition: all 0.8s ease-in-out;
+	}
+	#reveal2.visible {
+		opacity: 1;
+		-webkit-transform: none;
+			 -moz-transform: none;
+				-ms-transform: none;
+				 -o-transform: none;
+						transform: none;
+  }
+  
+  .digit {
+		opacity: 0;
+		-webkit-transform: translateX(-40px);
+			 -moz-transform: translateX(-40px);
+				-ms-transform: translateX(-40px);
+				 -o-transform: translateX(-40px);
+						transform: translateX(-40px);
+		-webkit-transition: all 0.6s ease-out;
+			 -moz-transition: all 0.6s ease-out;
+				-ms-transition: all 0.6s ease-out;
+				 -o-transition: all 0.6s ease-out;
+						transition: all 0.6s ease-out;
+	}
+	.digit.visible {
+		opacity: 1;
+		-webkit-transform: none;
+			 -moz-transform: none;
+				-ms-transform: none;
+				 -o-transform: none;
+						transform: none;
+	}
+
 
   @media screen and (max-width: 600px) {
     body  {
