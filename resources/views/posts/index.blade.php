@@ -13,9 +13,6 @@ FreeOutdoors
 </div>
 @endif
 
-<div id="app">
-
-</div>
 
 @foreach($posts as $post)
 <div class="card" class="gridCard m-b-md" style="width: 36rem;">
@@ -23,12 +20,12 @@ FreeOutdoors
     <ul>
         <div class="card-body"> 
             <li> 
-                @auth
+                
                 <a href="{{ route('profiles.show', $post->user_id) }}" class="text-dark" class="nav-link" >
-                    <strong>{{ $post->username }}</strong>
+                    <strong >{{ $user->name }}</strong>
                 </a>
-                @endauth
-
+             
+        
              
                 <div class="float-right">
                     @if($follower->followed ?? '') 
@@ -45,16 +42,16 @@ FreeOutdoors
 
                 @auth 
                 <a href="{{ route('posts.show', $post->id ) }}" >
-                    <button>Comment</button>
+                    <button data-post-id="{{ $post->id }}">View Comments</button>
                 </a>
                 <p>
-                    <span id="comments-count-{{ $post->id }}">{{ $post->comments_count }}</span>
+                    <span id="comments-count-{{ $post->id }}">{{ $post->comments_count }} Comments </span>
                 </p>
                
                 
                 <div class="float-right">
                     <button  onclick="actOnPost(event);" data-post-id="{{ $post->id }}">Like</button>
-                    <span id="likes-count-{{ $post->id }}">{{ $post->likes_count }}</span>
+                    <span id="likes-count-{{ $post->id }}">{{ $post->likes_count }} </span>
                 </div>
             
                 @endauth

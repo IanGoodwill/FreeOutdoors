@@ -26,7 +26,11 @@ class PostController extends Controller
       
         if ( $user = Auth::user() ) 
         {
-       
+            $profile = Profile::where("user_id", "=", $user->id)->firstOrFail(); 
+
+            $user = User::where( "id", "=", $profile->user_id )->firstOrFail(); 
+
+            $comments_count = Post::count("comments_count");
           
             $follower = Follower::where("follower_id", "=", $user->id)->find('followed');
 
@@ -34,17 +38,20 @@ class PostController extends Controller
             ->join( 'users', 'posts.user_id', '=', 'users.id' )
             ->select( 'posts.id',
             'users.id as user_id',
+            'users.name',
             'posts.posted_at',
             'posts.posted_at',
             'posts.content',
             'posts.picture',
-            'posts.likes_count',  )
+            'posts.likes_count',
+            'posts.comments_count',  )
             ->orderBy('posts.id', 'desc')
             ->get(); 
             
             $post = Post::where("user_id", "=", $user->id)->first();   
 
-        return view('posts.index', compact('posts', 'follower')  );
+
+        return view('posts.index', compact('posts', 'post', 'follower', 'comments_count', 'profile', 'user')  );
 
         }  else 
 

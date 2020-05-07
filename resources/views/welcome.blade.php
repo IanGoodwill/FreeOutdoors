@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li>
-                        <a  href="{{ route( 'posts.index') }}">
+                        <a  href="#about">
                         About
                         </a>
                     </li>
@@ -80,7 +80,7 @@
             </figure>
 
             <div id="reveal-elements">
-            <section class="who-we-are panel">
+            <section class="who-we-are panel" id="about">
                 <div id="trigger2" class="spacer digit s0"></div>
               <div  id="reveal2">  
                 <h6 class="heading-small digit"> WHO WE ARE </h6>
