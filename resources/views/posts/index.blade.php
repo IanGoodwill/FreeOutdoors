@@ -22,7 +22,7 @@ FreeOutdoors
             <li> 
                 
                 <a href="{{ route('profiles.show', $post->user_id) }}" class="text-dark" class="nav-link" >
-                    <strong >{{ $user->name }}</strong>
+                    <strong >{{ $profile->username }}</strong>
                 </a>
              
         

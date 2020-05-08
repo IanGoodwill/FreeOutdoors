@@ -7,6 +7,7 @@ use Auth;
 use App\Post;
 use App\User;
 use App\Comment;
+use App\Profile;
 
 class CommentController extends Controller
 {
@@ -97,6 +98,8 @@ class CommentController extends Controller
         if ( $user = Auth::user() ) {
 
             $comment = Comment::findOrFail($id);
+
+            $profile = Profile::where("user_id", "=", $user->id)->firstOrFail(); 
 
             if ( isset($comment->is_gif ) && ($comment->is_gif === 'true') ) {
          

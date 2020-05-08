@@ -27,10 +27,7 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a href="{{ route('profiles.edit', $profile->id) }}" class="navbar-brand" class="nav-item" >Profile</a>
-            </li>
-            
+       
  
         <li class="nav-item">
         <a class="navbar-brand" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

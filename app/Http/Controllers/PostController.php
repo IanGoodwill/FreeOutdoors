@@ -28,7 +28,7 @@ class PostController extends Controller
         {
             $profile = Profile::where("user_id", "=", $user->id)->firstOrFail(); 
 
-            $user = User::where( "id", "=", $profile->user_id )->firstOrFail(); 
+   
 
             $comments_count = Post::count("comments_count");
           
@@ -113,7 +113,11 @@ class PostController extends Controller
 
         $comment = new Comment();
 
-        return view( 'posts.show', compact('post', 'comment') );
+        $user = User::findOrFail($post->user_id);
+
+        $profile = Profile::where("user_id", "=", $user->id)->firstOrFail(); 
+
+        return view( 'posts.show', compact('post', 'comment', 'profile', 'user') );
 
     }
 
