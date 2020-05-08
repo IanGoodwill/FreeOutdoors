@@ -12,7 +12,7 @@ View Post
             <div class="card">
                 <div class="card-body">
 
-                    <h4> See posts one by one</h4>
+                   
                     @include('partials.errors')
 
                     <strong> Username: </strong>
@@ -21,16 +21,14 @@ View Post
                     {{ $profile->username ?? '' }}
                     <br>
 
-                    <strong> Content: </strong>
+                    <strong> Post: </strong>
                     <br>
 
                     <p>{{ $post->content }}</p>
 
-                    <h4>Display Comments</h4>
+                    <h4>Comment Section</h4>
 
                     @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
-
-                    <h4>Add comment</h4>
 
                     <section>
                         @if( $comment->is_gif == TRUE )
@@ -46,14 +44,13 @@ View Post
 
                     <a href="#" id="reply"></a>
 
-                    <!--
                     <div id="app">
-                        <comment-create-form submission-url="{{route('comments.store')}}" comment-id="{{ $comment->id }}" v-model="content">
+                        <comment-create-form submission-url="{{route('comments.store')}}" comment-id="{{ $comment->id }}" post-id="{{ $post->id }}" v-model="content">
                             @csrf
                         </comment-create-form>
-                        <Giphy v-on:image-clicked="imageClicked" />
+                        <Giphy v-on:image-clicked="imageClicked"/>
                     </div>
-                    -->
+                   
                 </div>
             </div>
         </div>

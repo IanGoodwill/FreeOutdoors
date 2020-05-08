@@ -19,7 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::post('/posts/{id}/act', 'LikeController@actOnPost');
 
 Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@likePost']);
@@ -35,3 +34,7 @@ Route::resource( 'posts', 'PostController' );
 Route::resource( 'profiles', 'ProfileController' );
 
 Route::resource( 'comments', 'CommentController' );
+
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');

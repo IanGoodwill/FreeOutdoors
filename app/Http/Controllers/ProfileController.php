@@ -93,7 +93,8 @@ class ProfileController extends Controller
         $posts = Post::query( )
             ->join( 'users', 'posts.user_id', '=', 'users.id' )
             ->select( 'posts.id',
-            'users.id as user_ID',
+            'users.id as user_id',
+            'users.name',
             'posts.posted_at',
             'posts.content',
             'posts.picture',

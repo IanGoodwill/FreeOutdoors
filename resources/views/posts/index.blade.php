@@ -22,10 +22,8 @@ FreeOutdoors
             <li> 
                 
                 <a href="{{ route('profiles.show', $post->user_id) }}" class="text-dark" class="nav-link" >
-                    <strong >{{ $profile->username }}</strong>
+                    <strong >{{ $post->name }}</strong>
                 </a>
-             
-        
              
                 <div class="float-right">
                     @if($follower->followed ?? '') 

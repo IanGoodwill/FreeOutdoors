@@ -26,7 +26,9 @@ View Profile
                         <img class="profilePic" class="rounded" class="img-responsive" src="{{ $profile->picture }}" alt="Profile picture" style="width:40%" />
                     </figure>
 
-                    <strong> Username: </strong>
+                  
+
+                    <strong> Username: </strong> 
                     {{ $profile->username }}
 
                     <br>

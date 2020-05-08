@@ -20,14 +20,14 @@ Profiles Index
     <ul>    
         <div class="card-body"> 
             <li>
-                <h3>
-                    {{ $profile->username }}
-                </h3>
+                <h5>
+                    <strong> {{ $profile->username }} </strong>
+                </h5>
                 <figure>
                     <img class="profilePic" class="img-responsive" src="{{ $profile->profile_pic }}" alt="Profile picture" style="width:10%" />
                 </figure>
                 <p>
-                    {{ $profile->bio}}
+                   <strong> Bio: </strong>  {{ $profile->bio}}
                 </p>
             </li>
         </div>       

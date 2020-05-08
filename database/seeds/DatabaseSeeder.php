@@ -17,6 +17,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call( (new PostsTableSeeder()) ->run() );
 
-        $this->call( (new CommentsTableSeeder()) ->run() );
+        
     }
 }

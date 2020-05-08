@@ -48,26 +48,28 @@ class CommentController extends Controller
 
         $validatedData = $request->validate(array( 
             'content' => 'required|max:255',
-           
+
         ));
 
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-     
+        $input['post_id'] = $request->input('post_id');
+
         if ( isset($input['is_gif']  ) && ($input['is_gif'] === 'true') ) {
-         
+
             $input['is_gif'] = 1;
-            
+
         }
 
         Comment::create($input);
-   
-    
-       
+
+
+
          return redirect('/posts')->with('success', 'Comment saved.');
         }// redirect by default
          return redirect('/posts');
     }
+
 
     /**
      * Display the specified resource.
