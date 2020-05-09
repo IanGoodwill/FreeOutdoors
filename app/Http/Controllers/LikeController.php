@@ -20,7 +20,7 @@ class LikeController extends Controller
                 Post::where('id', $id)->decrement('likes_count');
                 break;
         }
-        broadcast(new PostAction($id, $action))->toOthers();
+        
         return '';
     }
     public function likePost($id)

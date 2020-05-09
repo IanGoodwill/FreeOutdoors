@@ -45,4 +45,9 @@ class Post extends Model
         return (!is_null($like)) ? true : false;
     }
 
+    public function author()
+        {
+            return $this->belongsTo(User::class, 'user_id', 'id');
+        }
+
 }

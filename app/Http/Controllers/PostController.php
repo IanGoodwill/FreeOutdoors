@@ -44,7 +44,7 @@ class PostController extends Controller
             'posts.likes_count',
             'posts.comments_count',  )
             ->orderBy('posts.id', 'desc')
-            ->get(); 
+            ->paginate(10);
             
             $post = Post::where("user_id", "=", $user->id)->first();   
 
