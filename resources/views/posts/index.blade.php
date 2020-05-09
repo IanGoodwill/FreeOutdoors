@@ -40,7 +40,7 @@ FreeOutdoors
 
                 @auth 
                 <a href="{{ route('posts.show', $post->id ) }}" >
-                    <button data-post-id="{{ $post->id }}">View Comments</button>
+                    <button data-post-id="{{ $post->id }}" >View Comments</button>
                 </a>
                 <p>
                     <span id="comments-count-{{ $post->id }}">{{ $post->comments_count }} Comments </span>
@@ -50,7 +50,7 @@ FreeOutdoors
                
                 
                 <div id="app" class="float-right">
-                    <Likes> </Likes>
+                    <Likes post-id="{{ $post->id }}"> </Likes>
                 </div>
                 <p  class="float-right">
                     <span id="comments-count-{{ $post->id }}">{{ $post->likes_count }} Likes </span>

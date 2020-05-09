@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/posts/{id}/act', 'LikeController@actOnPost');
+Route::patch( '/post/{id}', 'PostController@toggleLike' );
+
+Route::post('/post/{id}/like', 'API\LikesController@like');
+
+Route::post('/post/{id}/like', 'API\LikesController@unlike');

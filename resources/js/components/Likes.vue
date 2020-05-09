@@ -1,62 +1,59 @@
 <template>
 <div>
 
-<button class="btn" type="submit">
-   Like
-</button>
+  
+<a href="#" v-if="isLiked" @click.prevent="unLike(post)">
+            <button type="submit">UnLike</button>
+</a>
+
+<a href="#" v-else @click.prevent="like(post)">
+            <button type="submit">Like</button>
+</a>
                     
 </div>
     
 </template>
 
 <script>
-export default {
-name: "Likes",
-  computed: {
-    likes: {
-      get: function() {
-        return this.now + this.liked;
-      }
+    export default {
+        name: "Likes",
+        props: ['post', 'liked'],
+        data: function() {
+            return {
+                isLiked: '',
+            }
+        },
+        mounted() {
+            this.isLiked = this.isLike ? true : false;
+        },
+        computed: {
+            isLike() {
+                return this.liked;
+            },
+        },
+        methods: {
+             toggleLike: function()
+        {
+            if(this.liked) {
+            this.unlike()
+            } else {
+            this.like()
+            } 
+        },
+            like(post) {
+                 this.text = 'Unlike';
+                axios.post('/like/'+post)
+                    .then(response => this.isLiked = true)
+                    .catch(response => console.log(response.data));
+            },
+            unLike(post) {
+                 this.text = 'Like';
+                axios.post('/unlike/'+post)
+                    .then(response => this.isLiked = false)
+                    .catch(response => console.log(response.data));
+            }
+        }
     }
-  },
-  data() {
-    return {
-      liked: 0
-
-    };
-  },
-  methods: {
-    addLike() {
-
-    },
-    toggleLike: function()
-    {
-    if(this.liked) {
-        this.unlike()
-    } else {
-        this.like()
-    } 
-  },
-  like: function() {
-    this.submitted = true;
-
-    this.$http.post('/likes', {'post': this.post}, function(resp) {
-        this.liked = true;
-        this.submitted = false;
-        this.text = 'Unlike';
-    });
-  },
-  unlike: function() {
-    this.submitted = true;
-
-    this.$http.delete('/likes/' + this.post, function(resp) {
-        this.liked = false;
-        this.submitted = false;
-        this.text = 'Like';
-    });
-}
-} 
-}
 </script>
 
 <style scoped>

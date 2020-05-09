@@ -25,6 +25,10 @@ Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@lik
 
 Route::get('/posts/{id}/act', ['as' => 'comment.like', 'uses' => 'LikeController@likeComment']);
 
+Route::post('/like', 'PostController@getlike');
+
+Route::post('/like/{id}', 'PostController@like');
+
 Route::get('profile/{id}', 'ProfileController@showPost');
 
 Route::get('post/{id}', 'PostController@showProfile');

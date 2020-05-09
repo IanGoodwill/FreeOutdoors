@@ -215,3 +215,18 @@ ul li  {
      
     }
   }
+
+  @media screen and (max-width: 400px) {
+    body  {
+      width: 100%;
+      font-size: 0.3em;
+    }
+
+    .navigation a {
+      font-size: 0.8rem;
+      color: black;
+      font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+      text-decoration: none;
+     
+    }
+  }

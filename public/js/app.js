@@ -2157,22 +2157,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Likes",
-  computed: {
-    likes: {
-      get: function get() {
-        return this.now + this.liked;
-      }
-    }
-  },
+  props: ['post', 'liked'],
   data: function data() {
     return {
-      liked: 0
+      isLiked: ''
     };
   },
+  mounted: function mounted() {
+    this.isLiked = this.isLike ? true : false;
+  },
+  computed: {
+    isLike: function isLike() {
+      return this.liked;
+    }
+  },
   methods: {
-    addLike: function addLike() {},
     toggleLike: function toggleLike() {
       if (this.liked) {
         this.unlike();
@@ -2180,22 +2186,24 @@ __webpack_require__.r(__webpack_exports__);
         this.like();
       }
     },
-    like: function like() {
-      this.submitted = true;
-      this.$http.post('/likes', {
-        'post': this.post
-      }, function (resp) {
-        this.liked = true;
-        this.submitted = false;
-        this.text = 'Unlike';
+    like: function like(post) {
+      var _this = this;
+
+      this.text = 'Unlike';
+      axios.post('/like/' + post).then(function (response) {
+        return _this.isLiked = true;
+      })["catch"](function (response) {
+        return console.log(response.data);
       });
     },
-    unlike: function unlike() {
-      this.submitted = true;
-      this.$http["delete"]('/likes/' + this.post, function (resp) {
-        this.liked = false;
-        this.submitted = false;
-        this.text = 'Like';
+    unLike: function unLike(post) {
+      var _this2 = this;
+
+      this.text = 'Like';
+      axios.post('/unlike/' + post).then(function (response) {
+        return _this2.isLiked = false;
+      })["catch"](function (response) {
+        return console.log(response.data);
       });
     }
   }
@@ -38240,20 +38248,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm.isLiked
+      ? _c(
+          "a",
+          {
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.unLike(_vm.post)
+              }
+            }
+          },
+          [_c("button", { attrs: { type: "submit" } }, [_vm._v("UnLike")])]
+        )
+      : _c(
+          "a",
+          {
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.like(_vm.post)
+              }
+            }
+          },
+          [_c("button", { attrs: { type: "submit" } }, [_vm._v("Like")])]
+        )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("button", { staticClass: "btn", attrs: { type: "submit" } }, [
-        _vm._v("\r\n   Like\r\n")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

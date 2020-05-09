@@ -186,5 +186,24 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
+    public function getlike(Request $request)
+    {
+        $post = Post::find($request->post);
+        return response()->json([
+            'post' => $post,
+        ]);
+    }
+
+    public function like(Request $request)
+    {
+        $post = Post::find($request->post);
+        $value = $post->like;
+        $post->like = $value + 1;
+        $post->save();
+        return response()->json([
+            'message' => 'Thanks',
+        ]);
+    }
+
     }
 
