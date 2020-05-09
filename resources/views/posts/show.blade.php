@@ -23,7 +23,7 @@ View Post
 
                     <strong> Post: </strong>
                     <br>
-
+                    <div class="card-body"> 
                     <p>{{ $post->content }}</p>
 
                     <h4>Comment Section</h4>
@@ -42,8 +42,8 @@ View Post
                         @endif
                     </section>
 
-                    <a href="#" id="reply"></a>
-
+                    <a href="{{route('comments.show', $id)}}" id="reply"></a>
+                    
                     <div id="app">
                         <comment-create-form submission-url="{{route('comments.store')}}" comment-id="{{ $comment->id }}" post-id="{{ $post->id }}" v-model="content">
                             @csrf
