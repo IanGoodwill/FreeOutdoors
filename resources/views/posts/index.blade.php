@@ -13,7 +13,7 @@ FreeOutdoors
 </div>
 @endif
 
-
+<div id="app">
 @foreach($posts as $post)
 <div class="card" class="gridCard m-b-md" style="width: 36rem;">
 
@@ -48,10 +48,8 @@ FreeOutdoors
 
                 <small>{{ $post->posted_at }}</small>
                
+                    <Likes class="float-right" post-id="{{ $post->id }}"> </Likes>
                 
-                <div id="app" class="float-right">
-                    <Likes post-id="{{ $post->id }}"> </Likes>
-                </div>
                 <p  class="float-right">
                     <span id="comments-count-{{ $post->id }}">{{ $post->likes_count }} Likes </span>
                 </p>
@@ -69,3 +67,4 @@ FreeOutdoors
 @auth 
 @include('partials.sidebar')
 @endauth
+</div>

@@ -2160,14 +2160,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Likes",
-  props: ['post', 'liked'],
+  props: ['post-id', 'liked'],
   data: function data() {
     return {
-      isLiked: ''
+      postId: '',
+      liked: false
     };
   },
   mounted: function mounted() {
@@ -2190,7 +2189,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.text = 'Unlike';
-      axios.post('/like/' + post).then(function (response) {
+      axios.post('/posts/like/' + postId).then(function (response) {
         return _this.isLiked = true;
       })["catch"](function (response) {
         return console.log(response.data);
@@ -2200,7 +2199,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.text = 'Like';
-      axios.post('/unlike/' + post).then(function (response) {
+      axios.post('/posts/unlike/' + postId).then(function (response) {
         return _this2.isLiked = false;
       })["catch"](function (response) {
         return console.log(response.data);
@@ -38257,7 +38256,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                return _vm.unLike(_vm.post)
+                return _vm.unLike(_vm.postId)
               }
             }
           },
@@ -38270,7 +38269,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                return _vm.like(_vm.post)
+                return _vm.like(_vm.postId)
               }
             }
           },
