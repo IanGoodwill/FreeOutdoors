@@ -15,7 +15,6 @@ use App\Follower;
 class PostController extends Controller 
 {
   
-
     /**
      * Display a listing of the resource.
      *
@@ -44,10 +43,9 @@ class PostController extends Controller
             'posts.likes_count',
             'posts.comments_count',  )
             ->orderBy('posts.id', 'desc')
-            ->paginate(10);
+            ->simplePaginate(10);
             
             $post = Post::where("user_id", "=", $user->id)->first();   
-
 
         return view('posts.index', compact('posts', 'post', 'follower', 'comments_count', 'profile', 'user')  );
 

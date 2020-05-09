@@ -42,7 +42,7 @@ View Post
                         @endif
                     </section>
 
-                    <a href="{{route('comments.show', $id)}}" id="reply"></a>
+                    <a href="{{route('comments.show', $post->id)}}" id="reply"></a>
                     
                     <div id="app">
                         <comment-create-form submission-url="{{route('comments.store')}}" comment-id="{{ $comment->id }}" post-id="{{ $post->id }}" v-model="content">

@@ -1,7 +1,7 @@
 <template>
   <section class="container">
   
-    <h3> Search For A Gif! </h3>
+    <h3> Comment With A Gif! </h3>
     <div class="columns">
       <form @submit="giphySearch" class="column is-one-fifth" action="#" method="GET">
         <div class="field">

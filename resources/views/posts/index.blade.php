@@ -49,44 +49,12 @@ FreeOutdoors
                 <small>{{ $post->posted_at }}</small>
                
                 
-                <div class="float-right">
-                    <button onclick="actOnPost(event);" data-post-id="{{ $post->id }}">Like</button>
-                    <span id="likes-count-{{ $post->id }}">{{ $post->likes_count }}</span>
-                    @section('js')
-                    <script>
-                        var updatePostStats = {
-                            Like: function (postId) {
-                                document.querySelector('#likes-count-' + postId).textContent++;
-                            },
-                
-                            Unlike: function(postId) {
-                                document.querySelector('#likes-count-' + postId).textContent--;
-                            }
-                        };
-                
-                
-                        var toggleButtonText = {
-                            Like: function(button) {
-                                button.textContent = "Unlike";
-                            },
-                
-                            Unlike: function(button) {
-                                button.textContent = "Like";
-                            }
-                        };
-                
-                        var actOnPost = function (event) {
-                            var postId = event.target.dataset.postId;
-                            var action = event.target.textContent;
-                            toggleButtonText[action](event.target);
-                            updatePostStats[action](postId);
-                            axios.post('/posts/' + postId + '/act',
-                                { action: action });
-                        };
-                
-                    </script>
-                 @endsection
+                <div id="app" class="float-right">
+                    <Likes> </Likes>
                 </div>
+                <p  class="float-right">
+                    <span id="comments-count-{{ $post->id }}">{{ $post->likes_count }} Likes </span>
+                </p>
             
                 @endauth
                
@@ -95,6 +63,7 @@ FreeOutdoors
     </ul>
 </div>
 @endforeach
+{{ $posts->links() }}
 @endsection
 
 @auth 
