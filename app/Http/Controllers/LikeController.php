@@ -22,4 +22,19 @@ class LikeController extends Controller
         $post->save();
         return $post;
     }
+
+    public function toggleLike(Request $request, $id)
+    {
+        $action = $request->get('action');
+        switch ($action) {
+            case 'Like':
+                Post::where('id', $id)->increment('likes_count');
+                break;
+            case 'Unlike':
+                Post::where('id', $id)->decrement('likes_count');
+                break;
+        }
+        
+        return '';
+    }
 }

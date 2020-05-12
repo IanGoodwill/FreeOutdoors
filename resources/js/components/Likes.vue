@@ -1,59 +1,37 @@
 <template>
 <div>
-
-<a href="#" v-if="isLiked" @click.prevent="unLike(postId)">
-            <button type="submit" >UnLike</button>
-</a>
-
-<a href="#" v-else @click.prevent="like(postId)">
-            <button type="submit">Like</button>
-</a>
-                    
+    <form action="posts/Like" method="post">
+        <label for="Likes">
+            <button type="submit" value="Like" onclick="toggleLike( event )">Like</button>
+        </label>
+    </form>             
 </div>
 </template>
 
 <script>
     export default {
         name: "Likes",
-        props: [
-        'post-id',
-        'liked'
-         ],
-     data ()
-    {
-      return {
-          postId: '',
-          liked: false
-      }
-        },
-        mounted() {
-            this.isLiked = this.isLike ? true : false;
-        },
-        computed: {
-            isLike() {
-                return this.liked;
-            },
-        },
         methods: {
-             toggleLike: function()
+             toggleLike: function( event )
         {
-            if(this.liked) {
-            this.unlike()
-            } else {
-            this.like()
-            } 
+            let postId = event.target.dataset.postId;
+            let action = event.target.textContent;
+            toggleButtonText[action](event.target);
+            updatePostStats[action](postId);
+            axios.patch('/posts/' + postId + '/act',
+            { action: like });
         },
-            like(post) {
+            like(postId) {
                  this.text = 'Unlike';
-                axios.post('/posts/like/'+postId)
-                    .then(response => this.isLiked = true)
-                    .catch(response => console.log(response.data));
+                 document.querySelector('#likes-count-' + postId).textContent++;
+                axios.patch('/posts/postId/like')
+                   
             },
-            unLike(post) {
+            unLike(postId) {
                  this.text = 'Like';
-                axios.post('/posts/unlike/'+postId)
-                    .then(response => this.isLiked = false)
-                    .catch(response => console.log(response.data));
+                  document.querySelector('#likes-count-' + postId).textContent--;
+                axios.patch('/posts/postId/unLike')
+            
             }
         }
     }

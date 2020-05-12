@@ -5,11 +5,7 @@
 </div>
 @endif
 
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <div class="float-right" class="mt-5">
 

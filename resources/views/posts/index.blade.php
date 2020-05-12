@@ -1,11 +1,10 @@
 @extends('layout')
 
-
-@section('title')
-FreeOutdoors
-@endsection
-
 @section('content')
+
+@auth 
+@include('partials.sidebar')
+@endauth
 
 @if ( session()->get('success') )
 <div role="alert">
@@ -48,7 +47,10 @@ FreeOutdoors
 
                 <small>{{ $post->posted_at }}</small>
                
-                    <Likes class="float-right" post-id="{{ $post->id }}"> </Likes>
+                    <Likes class="float-right" v-on:submit.prevent="onSubmit" data-post-id="{{ $post->id }}">
+                        @csrf 
+                        @method('PATCH')
+                    </Likes> 
                 
                 <p  class="float-right">
                     <span id="comments-count-{{ $post->id }}">{{ $post->likes_count }} Likes </span>
@@ -64,7 +66,5 @@ FreeOutdoors
 {{ $posts->links() }}
 @endsection
 
-@auth 
-@include('partials.sidebar')
-@endauth
+
 </div>
