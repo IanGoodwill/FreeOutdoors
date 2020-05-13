@@ -98,7 +98,7 @@ class ProfileController extends Controller
             'posts.posted_at',
             'posts.content',
             'posts.picture',
-            'posts.likes_count',  )
+              )
             ->orderBy('posts.id', 'desc')
             ->get(); 
 

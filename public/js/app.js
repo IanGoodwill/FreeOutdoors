@@ -2156,27 +2156,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Likes",
+  props: ["post", "liked"],
+  data: function data() {
+    return {
+      isLiked: ""
+    };
+  },
+  mounted: function mounted() {
+    this.isLiked = this.isLike ? true : false;
+  },
+  computed: {
+    isLike: function isLike() {
+      return this.liked;
+    }
+  },
   methods: {
-    toggleLike: function toggleLike(event) {
-      var postId = event.target.dataset.postId;
-      var action = event.target.textContent;
-      toggleButtonText[action](event.target);
-      updatePostStats[action](postId);
-      axios.patch('/posts/' + postId + '/act', {
-        action: like
+    like: function like(post) {
+      var _this = this;
+
+      axios.post("/FreeOutdoors/public/like/" + post).then(function (response) {
+        return _this.isLiked = true;
       });
     },
-    like: function like(postId) {
-      this.text = 'Unlike';
-      document.querySelector('#likes-count-' + postId).textContent++;
-      axios.patch('/posts/postId/like');
-    },
-    unLike: function unLike(postId) {
-      this.text = 'Like';
-      document.querySelector('#likes-count-' + postId).textContent--;
-      axios.patch('/posts/postId/unLike');
+    unLike: function unLike(post) {
+      var _this2 = this;
+
+      axios.post("/FreeOutdoors/public/unlike/" + post).then(function (response) {
+        return _this2.isLiked = false;
+      });
     }
   }
 });
@@ -38220,32 +38230,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("form", { attrs: { action: "posts/Like", method: "post" } }, [
-        _c("label", { attrs: { for: "Likes" } }, [
-          _c(
-            "button",
-            {
-              attrs: {
-                type: "submit",
-                value: "Like",
-                onclick: "toggleLike( event )"
+  return _c("div", [
+    _vm.isLiked
+      ? _c(
+          "a",
+          {
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.unLike(_vm.post)
               }
-            },
-            [_vm._v("Like")]
-          )
-        ])
-      ])
-    ])
-  }
-]
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fas fa-leaf",
+              staticStyle: { color: "green", "font-size": "2em" },
+              attrs: { "aria-hidden": "true" }
+            })
+          ]
+        )
+      : _c(
+          "a",
+          {
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.like(_vm.post)
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fas fa-leaf",
+              staticStyle: { color: "brown", "font-size": "2em" },
+              attrs: { "aria-hidden": "false" }
+            })
+          ]
+        )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

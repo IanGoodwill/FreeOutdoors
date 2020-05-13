@@ -47,14 +47,14 @@
 
                 <small>{{ $post->posted_at }}</small>
                
-                    <Likes class="float-right" v-on:submit.prevent="onSubmit" data-post-id="{{ $post->id }}">
-                        @csrf 
-                        @method('PATCH')
-                    </Likes> 
-                
-                <p  class="float-right">
-                    <span id="comments-count-{{ $post->id }}">{{ $post->likes_count }} Likes </span>
-                </p>
+                <div class="float-right">
+                    @if (Auth::check())
+                    <likes :post={{ $post->id }} :liked={{ $post->liked() ? 'true' : 'false' }}>
+                    </likes>
+                    @endif
+                    <span>{{ $post->likes()->count() }}</span>
+                </div>
+               
             
                 @endauth
                

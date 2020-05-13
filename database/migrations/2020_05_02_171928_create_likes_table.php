@@ -17,6 +17,7 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('post_id')->unsigned();
 
             $table->foreign( 'user_id' )
             ->references( 'id' )

@@ -19,15 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/posts/{id}/act', 'LikeController@actOnPost');
+Route::post('/like/{post}', 'PostController@likePost');
 
-Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@likePost']);
+Route::post('/unlike/{post}', 'PostController@unLikePost');
 
-Route::get('/posts/{id}/act', ['as' => 'comment.like', 'uses' => 'LikeController@likeComment']);
+Route::get('image-upload', 'PostController@imageUpload')->name('image.upload');
 
-Route::post('/like', 'PostController@getlike');
-
-Route::post('/like/{id}', 'PostController@like');
+Route::post('image-upload', 'PostController@imageUploadPost')->name('image.upload.post');
 
 Route::get('profile/{id}', 'ProfileController@showPost');
 

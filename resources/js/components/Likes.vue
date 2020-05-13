@@ -1,42 +1,47 @@
 <template>
-<div>
-    <form action="posts/Like" method="post">
-        <label for="Likes">
-            <button type="submit" value="Like" onclick="toggleLike( event )">Like</button>
-        </label>
-    </form>             
-</div>
+  <div>
+    <a href="#" v-if="isLiked" @click.prevent="unLike(post)">
+      <i class="fas fa-leaf" aria-hidden="true" style="color: green; font-size: 2em;"></i>
+      </a>
+    <a href="#" v-else @click.prevent="like(post)">
+      <i class="fas fa-leaf" aria-hidden="false" style="color: brown; font-size: 2em;"></i>
+    </a>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Likes",
-        methods: {
-             toggleLike: function( event )
-        {
-            let postId = event.target.dataset.postId;
-            let action = event.target.textContent;
-            toggleButtonText[action](event.target);
-            updatePostStats[action](postId);
-            axios.patch('/posts/' + postId + '/act',
-            { action: like });
-        },
-            like(postId) {
-                 this.text = 'Unlike';
-                 document.querySelector('#likes-count-' + postId).textContent++;
-                axios.patch('/posts/postId/like')
-                   
-            },
-            unLike(postId) {
-                 this.text = 'Like';
-                  document.querySelector('#likes-count-' + postId).textContent--;
-                axios.patch('/posts/postId/unLike')
-            
-            }
-        }
+export default {
+  name: "Likes",
+  props: ["post", "liked"],
+  data() {
+    return {
+      isLiked: ""
+    };
+  },
+  mounted() {
+    this.isLiked = this.isLike ? true : false;
+  },
+  computed: {
+    isLike() {
+      return this.liked;
     }
+  },
+  methods: {
+    like(post) {
+      axios
+        .post("/FreeOutdoors/public/like/" + post)
+        .then(response => (this.isLiked = true))
+    },
+    unLike(post) {
+      axios
+        .post("/FreeOutdoors/public/unlike/" + post)
+        .then(response => (this.isLiked = false))
+    }
+  }
+};
 </script>
 
 <style scoped>
 
 </style>
+
