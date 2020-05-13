@@ -42,7 +42,7 @@
                     <button data-post-id="{{ $post->id }}" >View Comments</button>
                 </a>
                 <p>
-                    <span id="comments-count-{{ $post->id }}">{{ $post->comments_count }} Comments </span>
+                    <span>{{ $post->comments_count }} Comments </span>
                 </p>
 
                 <small>{{ $post->posted_at }}</small>

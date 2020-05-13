@@ -23,9 +23,7 @@ Route::post('/like/{post}', 'PostController@likePost');
 
 Route::post('/unlike/{post}', 'PostController@unLikePost');
 
-Route::get('image-upload', 'PostController@imageUpload')->name('image.upload');
-
-Route::post('image-upload', 'PostController@imageUploadPost')->name('image.upload.post');
+Route::post('formSubmit','PostController@formSubmit');
 
 Route::get('profile/{id}', 'ProfileController@showPost');
 

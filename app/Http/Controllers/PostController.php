@@ -74,6 +74,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        
         $user = Auth::user();
         if ( $user ) // we are logged in and can create posts
             return view('posts.create');
@@ -199,8 +200,26 @@ class PostController extends Controller
     public function unLikePost(Post $post)
     {
         Auth::user()->likes()->detach($post->id);
-
         return back();
+    }
+
+    public function formSubmit(Request $request)
+    {
+        // Check image.
+        request()->validate([
+            'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+         // // Default image value.
+         $fileName = '';
+
+        $fileName = time().'.'.$request->file->getClientOriginalExtension();
+        $request->file->move(public_path('upload'), $fileName);
+              
+        return Post::create([
+            'content' => '',
+            'picture' => $fileName
+        ]);
     }
 
     }
