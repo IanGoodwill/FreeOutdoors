@@ -29,6 +29,8 @@ Vue.component('Likes', require('./components/Likes.vue').default);
 
 Vue.component('image-post', require('./components/ImagePost.vue').default);
 
+Vue.component('image-comment', require('./components/ImageComment.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

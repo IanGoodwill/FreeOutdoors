@@ -25,6 +25,8 @@ Route::post('/unlike/{post}', 'PostController@unLikePost');
 
 Route::post('formSubmit','PostController@formSubmit');
 
+Route::post('formSubmitComment','CommentController@formSubmitComment');
+
 Route::get('profile/{id}', 'ProfileController@showPost');
 
 Route::get('post/{id}', 'PostController@showProfile');

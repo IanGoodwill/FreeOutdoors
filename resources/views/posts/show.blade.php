@@ -51,10 +51,15 @@ View Post
                     <a href="{{route('comments.show', $post->id)}}" id="reply"></a>
                     
                     <div id="app">
+                        <image-comment post-id="{{ $post->id }}"> </image-comment>
+                        
                         <comment-create-form submission-url="{{route('comments.store')}}" comment-id="{{ $comment->id }}" post-id="{{ $post->id }}" v-model="content">
                             @csrf
                         </comment-create-form>
-                        <Giphy v-on:image-clicked="imageClicked"/>
+
+                        <Giphy v-on:image-clicked="imageClicked"/>  
+
+                      
                     </div>
                    
                 </div>

@@ -152,4 +152,31 @@ class CommentController extends Controller
         }
         return redirect('/posts');
     }
+
+    public function formSubmitComment(Request $request)
+    {
+
+        if ( $user = Auth::user() ) 
+        {
+        // Check image.
+        request()->validate([
+            'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // // Default image value.
+        $fileName = '';
+
+
+        $fileName = time().'.'.$request->file->getClientOriginalExtension();
+        $request->file->move(public_path('upload'), $fileName);
+       
+        $comment = new Comment();
+        $comment->user_id = $user->id;
+        $comment->content = '';
+        $comment->picture = $fileName;
+        $comment->save();
+              
+        return response()->json(['success'=>'You have successfully upload image.']);
+        }
+    }
 }

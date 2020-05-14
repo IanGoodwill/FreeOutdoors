@@ -15,11 +15,7 @@
             Explore
             </a>
         </li>
-        <li class="nav-item">
-            <a class="navbar-brand" href="{{ route( 'posts.index') }}">
-            About
-            </a>
-        </li>
+  
         @auth
         <li class="nav-item">
         <a class="navbar-brand" href="{{ route( 'posts.create') }}">
