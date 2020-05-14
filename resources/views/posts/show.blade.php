@@ -26,6 +26,12 @@ View Post
                     <div class="card-body"> 
                     <p>{{ $post->content }}</p>
 
+                    @if($post->picture !== Null) 
+                    <figure>
+                        <img class="img-responsive" alt="post picture" src="upload/{{$post->picture}}">
+                    </figure>
+                    @endif
+
                     <h4>Comment Section</h4>
 
                     @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])

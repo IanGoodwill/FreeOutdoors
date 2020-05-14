@@ -2173,6 +2173,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "image-post",
   mounted: function mounted() {
     console.log('Component mounted.');
   },
@@ -2180,7 +2181,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       caption: '',
       file: '',
-      success: ''
+      success: '',
+      user_id: ''
     };
   },
   methods: {

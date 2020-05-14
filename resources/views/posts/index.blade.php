@@ -37,6 +37,12 @@
                     {{ $post->content }}    
                 </p>
 
+                @if($post->picture !== Null) 
+                <figure>
+                    <img class="img-responsive" alt="post picture" src="upload/{{$post->picture}}">
+                </figure>
+                @endif
+
                 @auth 
                 <a href="{{ route('posts.show', $post->id ) }}" >
                     <button data-post-id="{{ $post->id }}" >View Comments</button>

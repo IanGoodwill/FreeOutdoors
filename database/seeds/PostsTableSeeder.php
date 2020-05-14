@@ -19,10 +19,8 @@ class PostsTableSeeder extends Seeder
          {
             DB::table( 'posts' )->insert( array(
                 'content' => $faker->paragraph,
-                'picture' => $faker->imageUrl($width = 640, $height = 480),
                 'user_id' => $faker->randomElement(User::pluck( 'id' )->toArray()), 
-                'posted_at' => $faker->dateTimeThisYear(),
-                
+                'posted_at' => $faker->dateTimeThisYear(),   
             ));
     }
 

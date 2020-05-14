@@ -77,6 +77,9 @@ class PostController extends Controller
         
         $user = Auth::user();
         if ( $user ) // we are logged in and can create posts
+
+        
+
             return view('posts.create');
         else // not logged in, can not make posts. redirect to index
             return redirect('/posts');
@@ -205,6 +208,9 @@ class PostController extends Controller
 
     public function formSubmit(Request $request)
     {
+
+        if ( $user = Auth::user() ) 
+        {
         // Check image.
         request()->validate([
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -215,11 +221,16 @@ class PostController extends Controller
 
         $fileName = time().'.'.$request->file->getClientOriginalExtension();
         $request->file->move(public_path('upload'), $fileName);
+
+
+        $post = new Post();
+        $post->user_id = $user->id;
+        $post->content = '';
+        $post->picture = $fileName;
+        $post->save();
               
-        return Post::create([
-            'content' => '',
-            'picture' => $fileName
-        ]);
+        return response()->json(['success'=>'You have successfully upload image.']);
+        }
     }
 
     }

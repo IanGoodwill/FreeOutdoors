@@ -20,7 +20,6 @@
                 </label>
             </div>
 
-        
             <div class="form-group container h-100">
                 <input class="btn btn-primary btn-customized align-bottom" type="submit" value="Publish Post">
             </div>

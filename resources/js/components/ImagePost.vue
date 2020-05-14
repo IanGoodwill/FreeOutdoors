@@ -26,6 +26,7 @@
    
 <script>
     export default {
+        name: "image-post",
         mounted() {
             console.log('Component mounted.')
         },
@@ -33,7 +34,8 @@
             return {
               caption: '',
               file: '',
-              success: ''
+              success: '',
+              user_id: ''
             };
         },
         methods: {

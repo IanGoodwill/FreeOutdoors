@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('title')
-Update Profile Form
-@endsection
-
 @section('content')
 
 <h1 class="text-center"> Fill out this form to update your profile!</h1>
