@@ -18,12 +18,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     </head>
     <body>
-
         <div class="navigation">
             <nav role="navigation">
     
                 <ul>
-            
                     <li>
                         <figure  >
                             <img class="img-responsive"  alt="logo" src="{{URL('/images/mountain-big.png')}}">
@@ -46,12 +44,10 @@
                         Create New Post
                         </a>
                     </li>
-             
                     <li>
                     <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
-            
                     <form id="logout-form" action="{{ route('logout') }}"       method="POST" style="display: none;">
                             {{ csrf_field() }}
                     </form>
@@ -63,7 +59,6 @@
                         Login
                         </a>
                     </li>
-            
                     <li>
                     <a  href="{{ route( 'register') }}">
                         Register
@@ -73,12 +68,10 @@
                 </ul>
             </nav>
         </div>
-      
             <figure>
                 <img class="mountain-lake-image" src="{{URL('/images/adventure-big-text.jpg')}}" alt="Picture of people looking at a mountain lake.">
                 <figcaption><small>Image by <a href="https://pixabay.com/users/Pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pexels</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2179256">Pixabay</a></small></figcaption>
             </figure>
-
             <div id="reveal-elements">
             <section class="who-we-are panel" id="about">
                 <div id="trigger2" class="spacer digit s0"></div>
@@ -95,7 +88,6 @@
                 </a>
             </section>
             </div>
-
             <section class="what-we-do panel">
                 <div id="reveal-elements">
                 <h6 class="heading-small digit"> WHAT WE DO </h6>
@@ -131,7 +123,6 @@
                 </div>
                 </div>
             </section>
-
             <div id="reveal-elements">
             <section class="why-join panel">
                 <h6 class="heading-small digit"> WHY JOIN? </h6>
@@ -143,20 +134,19 @@
                     <img class="girl-yard-image" src="{{URL('/images/girl-yard.jpg')}}" alt="Picture of young girl looking at a yard. Image by Pexels from Pixabay.">
                     <figcaption><small>Image by <a href="https://pixabay.com/users/Skitterphoto-324082/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=535251">Rudy and Peter Skitterians</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=535251">Pixabay</a></small></figcaption>
                 </figure>
-
+                @guest
                 <a  href="{{ route( 'register') }}"><h4 class="heading-large digit"> Click Here To Create An Account </h4> </a>
                 <h4 class="heading-large digit"> OR </h4>
+                @endauth
                 <h4 class="heading-large digit"> Get Outside And Play! </h4>
                 <figure>
                     <img class="page-bottom" src="{{URL('/images/footer-deer.png')}}" aria-label="Silhouette of a deer among trees.">
                 </figure>
             </section>
             </div>
-            
             <figure>
                 <img class="page-bottom" src="{{URL('/images/footer-deer.png')}}" alt="Silhouette of a deer among trees.">
             </figure>
-
             <footer class="footer">
                 <h3>FreeOutdoors &copy; Copyright 2020</h3>
             </footer>

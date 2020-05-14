@@ -14,7 +14,6 @@
                         <input type="text" class="form-control" v-model="caption">
                         <strong>File:</strong>
                         <input type="file" class="form-control" v-on:change="onFileChange">
-    
                         <button class="btn btn-success" type="submit">Submit</button>
                         </form>
                     </div>

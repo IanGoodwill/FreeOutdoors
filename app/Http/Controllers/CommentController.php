@@ -170,7 +170,7 @@ class CommentController extends Controller
         $fileName = time().'.'.$request->file->getClientOriginalExtension();
         $request->file->move(public_path('upload'), $fileName);
        
-        $comment = new Comment();
+        $comment = new Comment(); // need to pass the postId
         $comment->user_id = $user->id;
         $comment->content = '';
         $comment->picture = $fileName;
